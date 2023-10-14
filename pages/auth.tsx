@@ -1,8 +1,10 @@
-import Input from "@/components/Input"
-import axios from "axios";
+import { useRouter } from "next/router";
 import { useCallback, useState } from "react"
 import { signIn } from 'next-auth/react'
-import { useRouter } from "next/router";
+
+import Input from "@/components/Input"
+import axios from "axios";
+
 import {FcGoogle }  from 'react-icons/fc'
 import {BsGithub }  from 'react-icons/bs'
 
