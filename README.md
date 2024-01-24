@@ -2,10 +2,11 @@
 
 Anime Hub is your one-stop destination for all things anime. Dive into a world of captivating stories, exciting adventures, and colorful characters. It offers a massive library of your favorite anime series and movies.
 
-![image](./images/img0.png)
-![image](./images/img1.png)
-![image](./images/img2.png)
-![image](./images/img3.png)
+[![Deploy with Vercel](https://vercel.com/button)](anime-hub-rust.vercel.app)
+
+<h3>TechStack:</h3>
+
+[![My Skills](https://skillicons.dev/icons?i=ts,next,prisma,mongo)](https://skillicons.dev)
 
 ### Cloning the repository
 
