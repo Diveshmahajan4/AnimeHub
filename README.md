@@ -14,6 +14,19 @@ Anime Hub is your one-stop destination for all things anime. Dive into a world o
 git clone https://github.com/Diveshmahajan4/AnimeHub.git
 ```
 
+### Build Docker image
+
+```shell
+docker build -t animehub .
+```
+
+### Run Docker container
+
+```shell
+docker run -p 3000:3000 animehub
+```
+
+## Manual Installation
 ### Install packages
 
 ```shell
@@ -31,6 +44,8 @@ GITHUB_SECRET=
 NEXTAUTH_JWT_SECRET=
 NEXTAUTH_SECRET=
 ```
+### Note
+For docker add env variables without the `"`. 
 
 ### Start the app
 
