@@ -22,13 +22,33 @@ const auth = () => {
         setVariant((curr) => curr === 'login' ? 'register' : 'login')
     }, [])
 
+    const handleSignInWithProvider = async (provider: "google" | "github") => {
+        try {
+            const result = await signIn(provider, { redirect: false }); 
+
+            if (result?.ok) {
+                router.push('/profiles'); 
+            } else {
+                console.error("Login failed:", result?.error);
+            }
+        } catch (error) {
+            console.error("Login error:", error);
+        }
+    };
+
     const login = useCallback(async () => {
         try{
-            await signIn('credentials', {
+            const result = await signIn('credentials', {
                 email, 
                 password,
-                callbackUrl: '/profiles'
-            })
+                redirect: false 
+            });
+    
+            if (result?.ok) {
+                router.push('/profiles');  
+            } else {
+                console.error("Login failed:", result?.error);
+            }
         }catch(error){
             console.log(error)
         }
@@ -90,11 +110,11 @@ const auth = () => {
                     {variant === 'login' ? "Login" : "Sign Up"}
                     </button> 
                     <div className="flex items-center gap-4 mt-8 justify-center">
-                        <div onClick={() => signIn('google', {callbackUrl: '/profiles'})}
+                        <div onClick={() => handleSignInWithProvider('google')}
                          className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
                             <FcGoogle size={30}/>
                         </div>
-                        <div onClick={() => signIn('github', {callbackUrl: '/profiles'})}
+                        <div onClick={() => handleSignInWithProvider('github')}
                         className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
                             <BsGithub size={30}/>
                         </div>
