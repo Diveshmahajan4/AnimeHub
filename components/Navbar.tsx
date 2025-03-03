@@ -4,8 +4,27 @@ import NavbarItem from "./NavbarItem"
 import { BsBell, BsChevronDown} from "react-icons/bs"
 import { BiSearch } from "react-icons/bi"
 import AccountMenu from "./AccountMenu"
+import { NextPageContext } from "next"
+import { getSession } from "next-auth/react"
 
 const TOP_OFFSET = 69;
+
+export async function getServerSideProps(context: NextPageContext){
+  const session = await getSession(context);
+
+  // if(!session){
+  //   return{
+  //     redirect: {
+  //       destination: '/',
+  //       permanent: false,
+  //     }
+  //   }
+  // }
+
+  return {
+    props: {}
+  }
+}
 
 const Navbar = () => {
     const [ showMobileMenu, setShowMobileMenu] = useState(false);
