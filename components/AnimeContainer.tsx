@@ -68,7 +68,7 @@ const AnimeContainer: React.FC<AnimeContainerProps> = ({ title, apiEndpoint, isP
     try {
       // Append page parameter to the API endpoint
       const urlWithPage = `${apiEndpoint}${apiEndpoint.includes('?') ? '&' : '?'}p=${page}`;
-      const response = await fetch(urlWithPage);
+      const response = await fetch(urlWithPage, {method: 'GET', credentials: 'include'});
       const data: AnimeResponse = await response.json();
       
       if (data.code === 200) {
