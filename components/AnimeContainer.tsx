@@ -64,13 +64,13 @@ const AnimeContainer: React.FC<AnimeContainerProps> = ({ title, apiEndpoint, isP
   const fetchAnimeData = async (page: number = 1) => {
     setIsLoading(true);
     setError(null);
-    
+  
     try {
-      // Append page parameter to the API endpoint
-      const urlWithPage = `${apiEndpoint}${apiEndpoint.includes('?') ? '&' : '?'}p=${page}`;
-      const response = await fetch(urlWithPage, {method: 'GET', credentials: 'include'});
+      const response = await fetch(`/api/anime-proxy?p=${page}`, {
+        method: 'GET',
+      });
       const data: AnimeResponse = await response.json();
-      
+  
       if (data.code === 200) {
         setAnimeData(data.results);
         setPagination(data.page);
