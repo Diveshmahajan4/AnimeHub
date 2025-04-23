@@ -60,9 +60,7 @@ const Billboard = () => {
           setIsLoading(true);
           setError("");
           try {
-            const response = await fetch(
-              `https://api.amvstr.me/api/v2/info/${movieId}`
-            );
+            const response = await fetch(`/api/info/${movieId}`);
             const data = await response.json();
     
             if (response.ok) {

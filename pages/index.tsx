@@ -41,12 +41,12 @@ export default function Home() {
     <Billboard/>
     <AnimeContainer
           title="Trending Now"
-          apiEndpoint="https://api.amvstr.me/api/v2/trending?limit=8"
+          apiEndpoint="/api/anime-trending"
           isPagination={false}
     />
     <AnimeContainer
           title="Browse All"
-          apiEndpoint="https://api.amvstr.me/api/v2/popular"
+          apiEndpoint="/api/anime-popular"
           isPagination={true}
     />
     </>

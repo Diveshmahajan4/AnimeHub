@@ -66,7 +66,7 @@ const AnimeContainer: React.FC<AnimeContainerProps> = ({ title, apiEndpoint, isP
     setError(null);
   
     try {
-      const response = await fetch(`/api/anime-proxy?p=${page}`, {
+      const response = await fetch(`${apiEndpoint}?p=${page}`, {
         method: 'GET',
       });
       const data: AnimeResponse = await response.json();

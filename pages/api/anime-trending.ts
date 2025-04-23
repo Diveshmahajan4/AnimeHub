@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const { p = 1 } = req.query;
   
-    const url = `https://api.amvstr.me/api/v2/trending?limit=8&p=${p}`;
+    const url = `https://api.amvstr.me/api/v2/trending?limit=8`;
   
     try {
       const response = await fetch(url);
